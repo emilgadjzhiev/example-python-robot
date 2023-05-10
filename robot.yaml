@@ -1,9 +1,6 @@
 tasks:
-  - name: Run Python
-    python: tasks.py
-    inputs:
-      input_data: "${json.loads(inputs['process_input'])}"
-
+  Run Python:
+    shell: python tasks.py
 
 condaConfigFile: conda.yaml
 artifactsDir: output
