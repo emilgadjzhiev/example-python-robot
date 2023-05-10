@@ -1,11 +1,10 @@
-inputs:
-  robot_id:
-    type: string
-
 tasks:
-  Run Python:
-    shell: python tasks.py --robot_id ${{inputs.robot_id}}
-    
+  - name: Run Python
+    python: tasks.py
+    inputs:
+      input_data: "${json.loads(inputs['process_input'])}"
+
+
 condaConfigFile: conda.yaml
 artifactsDir: output
 PATH:
