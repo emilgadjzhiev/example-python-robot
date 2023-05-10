@@ -3,14 +3,11 @@ inputs:
     type: string
 
 tasks:
-  main:
-    steps:
-      - name: Run Python script
-        robot: ./tasks.py
-        arguments:
-          robot_id: "${{inputs.robot_id}}"
-
+  Run Python:
+    shell: python tasks.py --robot_id ${{inputs.robot_id}}
+    
 condaConfigFile: conda.yaml
+artifactsDir: output
 PATH:
   - .
 PYTHONPATH:
