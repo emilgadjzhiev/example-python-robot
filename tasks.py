@@ -9,7 +9,7 @@ def main():
     logging.warning(f'Warning: {message}')
     logging.error(f'Error: {message}')
     logging.critical(f'Critical: {message}')
-
+    print('PRINT')
 
 if __name__ == "__main__":
     main()
