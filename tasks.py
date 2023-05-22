@@ -1,6 +1,5 @@
 import time
 
-import requests
 from RPA.Robocorp.WorkItems import WorkItems
 
 
@@ -30,21 +29,23 @@ def simulate_robot_work(config, duration):  # do whatever with config
 def simulate_robot_failure(robot_id):
     # POST failure to Robot API
 
-    payload = {
-        "error": "Can't connect to the Epic.",
-        "error_type": "epic_error"
-    }
-    requests.post(f'http://127.0.0.1:7000/robot/process/{robot_id}/terminate', data=payload)
+    # payload = {
+    #     "error": "Can't connect to the Epic.",
+    #     "error_type": "epic_error"
+    # }
+    # requests.post(f'http://serverhost/robot/process/{robot_id}/terminate', data=payload)
+    ...
 
 
 def simulate_robot_finish(robot_id):
     # POST finish to Robot API
 
-    payload = {
-        "activities_processed": 50,
-        "number_of_exceptions": 50
-    }
-    requests.post(f'http://127.0.0.1:7000/robot/process/{robot_id}/finish', data=payload)
+    # payload = {
+    #     "activities_processed": 50,
+    #     "number_of_exceptions": 50
+    # }
+    # requests.post(f'http://serverhost/robot/process/{robot_id}/finish', data=payload)
+    ...
 
 
 def main():
