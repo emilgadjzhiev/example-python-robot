@@ -55,6 +55,7 @@ def main():
     robot_id = variables['robot_id']
     work_duration = variables['work_duration']
     finish_result = variables['finish_result']
+    print(f'Payload: {robot_id} {work_duration} {finish_result}')
 
     if finish_result == 'robot_failure':
         simulate_robot_failure(robot_id)
