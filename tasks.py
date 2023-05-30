@@ -2,6 +2,7 @@ import time
 
 import requests
 from RPA.Robocorp.WorkItems import WorkItems
+from RPA.Robocorp.Vault import Vault
 
 
 def get_robot_variables():
@@ -49,12 +50,21 @@ def simulate_robot_finish(robot_id):
     # requests.post(f'http://serverhost/robot/process/{robot_id}/finish', data=payload)
     ...
 
+def get_redis_url():
+    _secret = Vault().get_secret("Redis")
+    redis_url = _secret["REDIS_URL"]
+    return redis_url
+
 
 def main():
     variables = get_robot_variables()
     robot_id = variables['robot_id']
     work_duration = variables['work_duration']
     finish_result = variables['finish_result']
+
+    redis_url = get_redis_url()
+    print(f'REDIS_URL: {redis_url}')
+    
     print(f'Payload: {robot_id} {work_duration} {finish_result}')
 
     if finish_result == 'robot_failure':
